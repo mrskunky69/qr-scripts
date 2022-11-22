@@ -1,4 +1,6 @@
 # RedM carry script
+this was made by kikbook a few years ago 
+for the original redem framwork so all credit to him 
 
 Let's you pick up entities.
 
