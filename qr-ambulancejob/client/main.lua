@@ -107,39 +107,6 @@ WeaponDamageList = {
 	['WEAPON_FIRE'] = Lang:t('damage.mburns'),
 }
 
-RegisterNetEvent('QRCore:Client:OnPlayerLoaded', function()
-    print('player health adjusted')
-    local healthcore = Citizen.InvokeNative(0x36731AC041289BB1, PlayerPedId(), 0)
-    local savedhealth = QRCore.Functions.GetPlayerData().metadata["health"]
-    while true do
-        Wait(1000)
-        if healthset == false then
-            if healthcore < 100 then
-                Citizen.InvokeNative(0xC6258F41D86676E0, PlayerPedId(), 0, 100) -- SetAttributeCoreValue
-                SetEntityHealth(PlayerPedId(), savedhealth, 0)
-                healthset = true
-            else
-                Wait(1000)
-            end
-        end
-    end
-end)
-
--- health update loop
-CreateThread(function()
-    while true do
-        if healthset == true then
-            local health = GetEntityHealth(PlayerPedId())
-            if lastHealth ~= health then
-                TriggerServerEvent('hospital:server:SetHealth', health)
-            end
-            lastHealth = health
-            Wait(1000)
-        else
-            Wait(5000)
-        end
-    end
-end)
 
 -- Functions
 local function GetAvailableBed(bedId)
