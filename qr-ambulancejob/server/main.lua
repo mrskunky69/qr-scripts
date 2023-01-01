@@ -24,20 +24,7 @@ RegisterNetEvent('hospital:server:SendToBed', function(bedId, isRevive)
 	--TriggerClientEvent('hospital:client:SendBillEmail', src, Config.BillCost)
 end)
 
--- set player health
-RegisterNetEvent('hospital:server:SetHealth', function(amount)
-    local src = source
-    local Player = QRCore.Functions.GetPlayer(src)
-    if Player then
-        amount = tonumber(amount)
-        if amount < 1 then
-            amount = 1
-        elseif amount > Config.MaxHp then
-            amount = Config.MaxHp
-        end
-        Player.Functions.SetMetaData("health", amount)
-    end
-end)
+
 
 RegisterNetEvent('hospital:server:RespawnAtHospital', function(closestBed)
 	local src = source
