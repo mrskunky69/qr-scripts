@@ -1,7 +1,10 @@
 # EmsBag script for RSG-Core
 
 # Information
-* A Script That Would Allow Doctors To carry a Their Job Bag   
+* A Script That Would Allow Doctors To carry a Their Job Bag  
+github 'https://github.com/Ranjit-Develops'
+created by ranjit for qb core five m
+
 
 # Required
 Add this to **rsg-core/shared/items.lua**
